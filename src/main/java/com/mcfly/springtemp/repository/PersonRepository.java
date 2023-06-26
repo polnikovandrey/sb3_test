@@ -1,13 +1,8 @@
 package com.mcfly.springtemp.repository;
 
 import com.mcfly.springtemp.entyty.Person;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
-@Repository
-public interface PersonRepository {
-
-    List<Person> findAll();
+public interface PersonRepository extends JpaRepository<Person, Long> {
 
 }

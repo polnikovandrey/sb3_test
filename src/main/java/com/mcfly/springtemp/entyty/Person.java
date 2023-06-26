@@ -1,15 +1,27 @@
 package com.mcfly.springtemp.entyty;
 
+import jakarta.persistence.*;
+import lombok.*;
+import lombok.extern.jackson.Jacksonized;
+
+import java.util.Objects;
+
+@Getter
+@Setter
+@Builder
+@ToString
+@Jacksonized
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "persons")
 public class Person {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     private String name;
-
-    public Person() {
-    }
-
-    public Person(String name) {
-        this.name = name;
-    }
 
     public String getName() {
         return name;
@@ -17,5 +29,23 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Person person = (Person) o;
+
+        if (!Objects.equals(id, person.id)) return false;
+        return Objects.equals(name, person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
     }
 }

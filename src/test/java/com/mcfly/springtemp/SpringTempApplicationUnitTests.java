@@ -31,16 +31,16 @@ public class SpringTempApplicationUnitTests {
 
     @Test
     void getPersonServiceGetAllPersonCallsPersonRepoitoryFindAll() {
-        personService.getAllPerson();
+        personService.getPersons();
         verify(personRepository).findAll();
     }
 
     @Test
     void getPersonList() {
-        final Person personA = new Person("A");
-        final Person personB = new Person("B");
+        final Person personA = new Person(1L, "A");
+        final Person personB = new Person(2L, "B");
         when(personRepository.findAll()).thenReturn(Arrays.asList(personA, personB));
-        final List<Person> persons = personService.getAllPerson();
+        final List<Person> persons = personService.getPersons();
         assertThat(persons).isNotNull().hasSize(2);
         assertThat(persons.get(0).getName()).isEqualTo(personA.getName());
         assertThat(persons.get(1).getName()).isEqualTo(personB.getName());
