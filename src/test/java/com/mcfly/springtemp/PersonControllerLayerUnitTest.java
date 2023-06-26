@@ -68,4 +68,13 @@ public class PersonControllerLayerUnitTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("C")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$").isNotEmpty());
     }
+
+    @Test
+    public void testDeletePerson() throws Exception {
+        final Person personD = new Person(4L, "D");
+        when(personService.deletePersonById(personD.getId())).thenReturn(true);
+        mockMvc.perform(MockMvcRequestBuilders.delete("/api/persons/4"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk());
+    }
 }
