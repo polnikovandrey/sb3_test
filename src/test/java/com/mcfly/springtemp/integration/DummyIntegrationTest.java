@@ -1,4 +1,4 @@
-package com.mcfly.springtemp;
+package com.mcfly.springtemp.integration;
 
 import com.mcfly.springtemp.entyty.Person;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class IntegrationTests {
+class DummyIntegrationTest {
 
     @Autowired
     ApplicationContext context;
