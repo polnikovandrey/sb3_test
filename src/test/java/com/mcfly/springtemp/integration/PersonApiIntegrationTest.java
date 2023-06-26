@@ -13,6 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
+import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
@@ -48,7 +49,7 @@ public class PersonApiIntegrationTest {
     @Test
     @Sql(statements = "insert into person(id, name) values (2, 'B')", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(statements = "delete from person where id = 2", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-    public void testPersonsList() {
+    public void testGetPersons() {
         final HttpEntity<String> entity = new HttpEntity<>(null, httpHeaders);
         final ResponseEntity<List<Person>> response = testRestTemplate.exchange(createUrlWithPort(), HttpMethod.GET, entity, new ParameterizedTypeReference<>() { });
         final List<Person> personList = response.getBody();
@@ -61,17 +62,32 @@ public class PersonApiIntegrationTest {
     @Test
     @Sql(statements = "insert into person(id, name) values (2, 'B')", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql(statements = "delete from person where id = 2", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
-    public void testPersonById() throws JsonProcessingException {
+    public void testGetPersonById() throws JsonProcessingException {
         final HttpEntity<String> entity = new HttpEntity<>(null, httpHeaders);
         final ResponseEntity<Person> response = testRestTemplate.exchange(createUrlWithPort() + "/2", HttpMethod.GET, entity, Person.class);
         final Person responseBodyPerson = response.getBody();
         assertThat(response.getStatusCode().value()).isEqualTo(200);
+        assertThat(responseBodyPerson)
+                .isNotNull()
+                .isEqualTo(personService.getPersonById(2L))
+                .isEqualTo(personRepository.findById(2L).get());
         assertThat(objectMapper.writeValueAsString(responseBodyPerson)).isEqualTo("{\"id\":2,\"name\":\"B\"}");
-        assertThat(responseBodyPerson).isNotNull();
-        assertThat(responseBodyPerson).isEqualTo(personService.getPersonById(2L));
-        assertThat(responseBodyPerson).isEqualTo(personRepository.findById(2L).get());
-        
+    }
 
+    @Test
+    @Repeat(3)
+    @Sql(statements = "delete from person where name = 'Test dummy'", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    public void testCreatePerson() throws JsonProcessingException {
+        final Person dummyPerson = new Person(null, "Test dummy");
+        final HttpEntity<String> entity = new HttpEntity<>(objectMapper.writeValueAsString(dummyPerson), httpHeaders);
+        final ResponseEntity<Person> response = testRestTemplate.exchange(createUrlWithPort(), HttpMethod.POST, entity, Person.class);
+        final Person responseBodyPerson = response.getBody();
+        assertThat(response.getStatusCode().value()).isEqualTo(201);
+        assertThat(responseBodyPerson)
+                .isNotNull()
+                .isEqualTo(personService.getPersonById(responseBodyPerson.getId()))
+                .isEqualTo(personRepository.findById(responseBodyPerson.getId()).get());
+        assertThat(objectMapper.writeValueAsString(responseBodyPerson)).isEqualTo("{\"id\":" + responseBodyPerson.getId() + ",\"name\":\"Test dummy\"}");
     }
 
 
