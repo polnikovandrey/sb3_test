@@ -1,5 +1,6 @@
 package com.mcfly.springtemp.integration;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mcfly.springtemp.entyty.Person;
 import com.mcfly.springtemp.repository.PersonRepository;
@@ -55,6 +56,22 @@ public class PersonApiIntegrationTest {
         assertThat(response.getStatusCode().value()).isEqualTo(200);
         assertThat(personList.size()).isEqualTo(personService.getPersons().size());
         assertThat(personList.size()).isEqualTo(personRepository.findAll().size());
+    }
+
+    @Test
+    @Sql(statements = "insert into person(id, name) values (2, 'B')", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    @Sql(statements = "delete from person where id = 2", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
+    public void testPersonById() throws JsonProcessingException {
+        final HttpEntity<String> entity = new HttpEntity<>(null, httpHeaders);
+        final ResponseEntity<Person> response = testRestTemplate.exchange(createUrlWithPort() + "/2", HttpMethod.GET, entity, Person.class);
+        final Person responseBodyPerson = response.getBody();
+        assertThat(response.getStatusCode().value()).isEqualTo(200);
+        assertThat(objectMapper.writeValueAsString(responseBodyPerson)).isEqualTo("{\"id\":2,\"name\":\"B\"}");
+        assertThat(responseBodyPerson).isNotNull();
+        assertThat(responseBodyPerson).isEqualTo(personService.getPersonById(2L));
+        assertThat(responseBodyPerson).isEqualTo(personRepository.findById(2L).get());
+        
+
     }
 
 
