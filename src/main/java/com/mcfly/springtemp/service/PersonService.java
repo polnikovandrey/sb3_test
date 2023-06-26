@@ -41,6 +41,6 @@ public class PersonService {
     }
 
     private PersonNotFoundException throwPersonNotFoundException(Long id) {
-        throw new PersonNotFoundException("Person not found, id: " + id);
+        throw new PersonNotFoundException(id);
     }
 }
