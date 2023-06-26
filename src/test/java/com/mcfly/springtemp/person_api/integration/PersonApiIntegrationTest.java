@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.integration;
+package com.mcfly.springtemp.person_api.integration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.unit;
+package com.mcfly.springtemp.person_api.unit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mcfly.springtemp.entyty.Person;
