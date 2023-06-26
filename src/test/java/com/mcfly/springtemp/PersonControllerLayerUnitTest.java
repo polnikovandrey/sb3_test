@@ -1,5 +1,6 @@
 package com.mcfly.springtemp;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mcfly.springtemp.entyty.Person;
 import com.mcfly.springtemp.service.PersonService;
 import org.hamcrest.Matchers;
@@ -51,6 +52,20 @@ public class PersonControllerLayerUnitTest {
                 .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("B")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$").isNotEmpty());
+    }
+
+    @Test
+    public void testCreatePerson() throws Exception {
+        final Person toCreate = new Person(null, "C");
+        final Person personC = new Person(3L, "C");
+        when(personService.createPerson(toCreate)).thenReturn(personC);
+        mockMvc.perform(MockMvcRequestBuilders.post("/api/persons").content(new ObjectMapper().writeValueAsString(toCreate)).contentType(MediaType.APPLICATION_JSON))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isCreated())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(3)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("C")))
                 .andExpect(MockMvcResultMatchers.jsonPath("$").isNotEmpty());
     }
 }
