@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class SpringTempApplicationIntegrationTests {
+class IntegrationTests {
 
     @Autowired
     ApplicationContext context;
