@@ -40,4 +40,17 @@ public class PersonControllerLayerUnitTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(1)))
                 .andExpect(MockMvcResultMatchers.jsonPath("$").isArray());
     }
+
+    @Test
+    public void testGetPersonById() throws Exception {
+        final Person personB = new Person(2L, "B");
+        when(personService.getPersonById(2L)).thenReturn(personB);
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/persons/2"))
+                .andDo(MockMvcResultHandlers.print())
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.name", Matchers.is("B")))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(2)))
+                .andExpect(MockMvcResultMatchers.jsonPath("$").isNotEmpty());
+    }
 }
