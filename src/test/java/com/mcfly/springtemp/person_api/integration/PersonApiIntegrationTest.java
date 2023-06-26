@@ -2,9 +2,9 @@ package com.mcfly.springtemp.person_api.integration;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mcfly.springtemp.entyty.Person;
-import com.mcfly.springtemp.repository.PersonRepository;
-import com.mcfly.springtemp.service.PersonService;
+import com.mcfly.springtemp.person_api.entyty.Person;
+import com.mcfly.springtemp.person_api.repository.PersonRepository;
+import com.mcfly.springtemp.person_api.service.PersonService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

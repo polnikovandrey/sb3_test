@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.bean_scopes;
+package com.mcfly.springtemp.bean_scopes.common;
 
 public class HelloMessageGenerator {
 

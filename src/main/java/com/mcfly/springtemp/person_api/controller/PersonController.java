@@ -1,7 +1,7 @@
-package com.mcfly.springtemp.controller;
+package com.mcfly.springtemp.person_api.controller;
 
-import com.mcfly.springtemp.entyty.Person;
-import com.mcfly.springtemp.service.PersonService;
+import com.mcfly.springtemp.person_api.entyty.Person;
+import com.mcfly.springtemp.person_api.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

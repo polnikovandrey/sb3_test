@@ -1,8 +1,8 @@
-package com.mcfly.springtemp.service;
+package com.mcfly.springtemp.person_api.service;
 
-import com.mcfly.springtemp.common.PersonNotFoundException;
-import com.mcfly.springtemp.entyty.Person;
-import com.mcfly.springtemp.repository.PersonRepository;
+import com.mcfly.springtemp.person_api.common.PersonNotFoundException;
+import com.mcfly.springtemp.person_api.entyty.Person;
+import com.mcfly.springtemp.person_api.repository.PersonRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

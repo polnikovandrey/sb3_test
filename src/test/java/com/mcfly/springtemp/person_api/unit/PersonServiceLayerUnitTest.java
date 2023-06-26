@@ -1,9 +1,9 @@
 package com.mcfly.springtemp.person_api.unit;
 
-import com.mcfly.springtemp.common.PersonNotFoundException;
-import com.mcfly.springtemp.entyty.Person;
-import com.mcfly.springtemp.repository.PersonRepository;
-import com.mcfly.springtemp.service.PersonService;
+import com.mcfly.springtemp.person_api.common.PersonNotFoundException;
+import com.mcfly.springtemp.person_api.entyty.Person;
+import com.mcfly.springtemp.person_api.repository.PersonRepository;
+import com.mcfly.springtemp.person_api.service.PersonService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;

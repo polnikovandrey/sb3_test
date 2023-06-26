@@ -1,8 +1,9 @@
 package com.mcfly.springtemp.person_api.unit;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mcfly.springtemp.entyty.Person;
-import com.mcfly.springtemp.service.PersonService;
+import com.mcfly.springtemp.person_api.controller.PersonController;
+import com.mcfly.springtemp.person_api.entyty.Person;
+import com.mcfly.springtemp.person_api.service.PersonService;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -21,7 +22,7 @@ import java.util.Collections;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)      // integrates the Spring TestContext Framework into JUnit 5’s Jupiter programming model.
-@WebMvcTest     // apply only configuration relevant to MVC tests, not @Component, @Service or @Repository beans
+@WebMvcTest(controllers = PersonController.class)     // apply only configuration relevant to MVC tests, not @Component, @Service or @Repository beans
 public class PersonControllerLayerUnitTest {
 
     @Autowired

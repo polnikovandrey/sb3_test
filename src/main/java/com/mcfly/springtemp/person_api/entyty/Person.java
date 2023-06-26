@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.entyty;
+package com.mcfly.springtemp.person_api.entyty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

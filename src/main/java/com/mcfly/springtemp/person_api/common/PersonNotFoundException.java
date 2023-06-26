@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.common;
+package com.mcfly.springtemp.person_api.common;
 
 public class PersonNotFoundException extends RuntimeException {
 
