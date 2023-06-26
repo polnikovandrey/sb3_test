@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Scopes example</title>
+    <link rel="stylesheet" th:href="@{/css/css.css}"/>
+</head>
+<body>
+<p th:text="'Previous message: ' + ${previousMessage}" class="funny"/>
+<p th:text="'Current message: ' + ${currentMessage}" class="funny"/>
+</body>
+</html>
