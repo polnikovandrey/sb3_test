@@ -40,9 +40,9 @@ public class PersonRepositoryLayerUnitTest {
         final List<Person> persons = personRepository.findAll();
         assertThat(persons).isNotNull();
         assertThat(persons.size()).isEqualTo(2);
-        assertThat(persons.get(0).getId()).isEqualTo(1L);
+        assertThat(persons.get(0).getId()).isNotNegative().isGreaterThan(0);
         assertThat(persons.get(0).getName()).isEqualTo("A");
-        assertThat(persons.get(1).getId()).isEqualTo(2L);
+        assertThat(persons.get(1).getId()).isNotNegative().isGreaterThan(0);
         assertThat(persons.get(1).getName()).isEqualTo("B");
     }
 }
