@@ -14,7 +14,7 @@ final class ProducerConsumer<T> {
         this.buffer = new LinkedList<>();
     }
 
-    static void startProducerConsumer() {
+    static void start() {
         final ProducerConsumer<Integer> producerConsumer = new ProducerConsumer<>();
         final AtomicInteger count = new AtomicInteger();
         final Thread consumerThread = new Thread(() -> {

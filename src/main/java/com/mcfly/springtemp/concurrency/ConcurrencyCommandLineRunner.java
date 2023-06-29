@@ -13,7 +13,8 @@ public class ConcurrencyCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        ProducerConsumer.startProducerConsumer();
+//        ProducerConsumer.start();
+//        DeadLock.start();
     }
 }
 
