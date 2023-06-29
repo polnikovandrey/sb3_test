@@ -1,5 +1,6 @@
 package com.mcfly.springtemp.concurrency;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -11,7 +12,7 @@ final class ProducerConsumer<T> {
     private final List<T> buffer;
 
     ProducerConsumer() {
-        this.buffer = new LinkedList<>();
+        this.buffer = Collections.synchronizedList(new LinkedList<>());
     }
 
     static void start() {
