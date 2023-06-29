@@ -3,6 +3,9 @@ package com.mcfly.springtemp.concurrency;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 final class ProducerConsumer<T> {
@@ -13,31 +16,6 @@ final class ProducerConsumer<T> {
 
     ProducerConsumer() {
         this.buffer = Collections.synchronizedList(new LinkedList<>());
-    }
-
-    static void start() {
-        final ProducerConsumer<Integer> producerConsumer = new ProducerConsumer<>();
-        final AtomicInteger count = new AtomicInteger();
-        final Thread consumerThread = new Thread(() -> {
-            try {
-                while (count.get() != 100 || !producerConsumer.isEmpty()) {
-                    producerConsumer.consume();
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        final Thread producerThread = new Thread(() -> {
-            try {
-                while(count.get() < 100) {
-                    producerConsumer.produce(count.incrementAndGet());
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        });
-        consumerThread.start();
-        producerThread.start();
     }
 
     synchronized void produce(T value) throws InterruptedException {
@@ -63,5 +41,63 @@ final class ProducerConsumer<T> {
 
     boolean isEmpty() {
         return buffer.isEmpty();
+    }
+
+
+
+
+    static void startWithThreads() {
+        final ProducerConsumer<Integer> producerConsumer = new ProducerConsumer<>();
+        final AtomicInteger count = new AtomicInteger();
+        final Thread consumerThread = new Thread(() -> {
+            try {
+                while (count.get() != 100 || !producerConsumer.isEmpty()) {
+                    producerConsumer.consume();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        final Thread producerThread = new Thread(() -> {
+            try {
+                while(count.get() < 100) {
+                    producerConsumer.produce(count.incrementAndGet());
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        consumerThread.start();
+        producerThread.start();
+    }
+
+    public static void startWithExecutors() {
+        final ProducerConsumer<Integer> producerConsumer = new ProducerConsumer<>();
+        final AtomicInteger count = new AtomicInteger();
+        final ExecutorService executorService = Executors.newFixedThreadPool(2);
+        executorService.execute(() -> {
+            try {
+                while (count.get() != 100 || !producerConsumer.isEmpty()) {
+                    producerConsumer.consume();
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        executorService.execute(() -> {
+            try {
+                while(count.get() < 100) {
+                    producerConsumer.produce(count.incrementAndGet());
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        try {
+            executorService.shutdown();
+            executorService.awaitTermination(1, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
