@@ -6,7 +6,7 @@ import java.util.Set;
 /**
  * Для аргумента-строки найти максимальную длину подстроки без повторяющихся символов.
  */
-public final class FindMaxDistinctSubstringLength extends BaseAlgorithm<String> {
+public final class MaxDistinctSubstringLengthCalculator extends BaseAlgorithm<String> {
 
     @Override
     String[] getArguments() {

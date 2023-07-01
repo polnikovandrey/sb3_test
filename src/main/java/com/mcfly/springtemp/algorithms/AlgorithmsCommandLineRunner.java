@@ -15,8 +15,9 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
-//                new FindMaxDistinctSubstringLength().perform(),
-                new FindTwoArraysMedian().perform()
+//                new MaxDistinctSubstringLengthCalculator().perform(),
+//                new TwoArraysMedianFinder().perform(),
+//                new LongestPalindromicSubstringFinder().perform()
         ).forEach(result -> System.out.println("$$$ " + result.toString()));
     }
 }

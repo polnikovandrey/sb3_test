@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Ищет медиану двух массивов.
  */
-public final class FindTwoArraysMedian extends BaseAlgorithm<FindTwoArraysMedian.TwoArrays> {
+public final class TwoArraysMedianFinder extends BaseAlgorithm<TwoArraysMedianFinder.TwoArrays> {
 
     static final class TwoArrays {
         int[] nums1;
