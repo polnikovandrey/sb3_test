@@ -1,27 +1,22 @@
 package com.mcfly.springtemp.algorithms;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  * Для аргумента-строки найти максимальную длину подстроки без повторяющихся символов.
  */
-public final class FindMaxDistinctSubstringLength {
+public final class FindMaxDistinctSubstringLength extends BaseAlgorithm<String> {
 
-    private static final String[] ARGUMENTS = {
-            "01210456789"
-    };
-
-    public Object[] perform() {
-        return perform(ARGUMENTS);
+    @Override
+    String[] getArguments() {
+        return new String[] {
+                "01210456789"
+        };
     }
 
-    public Object[] perform(String[] inputs) {
-        return Arrays.stream(inputs).map(input -> calculate(input)).toArray();
-    }
-
-    private Integer calculate(String input) {
+    @Override
+    Object calculate(String input) {
         int max = 0;
         int left = 0;
         Set<Character> set = new HashSet<>(input.length());
