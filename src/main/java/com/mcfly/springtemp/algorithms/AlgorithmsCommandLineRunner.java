@@ -18,7 +18,8 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
 //                new MaxDistinctSubstringLengthCalculator().perform(),
 //                new TwoArraysMedianFinder().perform(),
 //                new LongestPalindromicSubstringFinder().perform(),
-                new ZigzagConverter().perform()
+//                new ZigzagConverter().perform(),
+                new ReverseIntegerCheckIntBounds().perform()
         ).forEach(result -> System.out.println("$$$ " + result.toString()));
     }
 }
