@@ -15,10 +15,10 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
-//                new MaxDistinctSubstringLengthCalculator().perform(),
-//                new TwoArraysMedianFinder().perform(),
-//                new LongestPalindromicSubstringFinder().perform(),
-//                new ZigzagConverter().perform(),
+                new MaxDistinctSubstringLengthCalculator().perform(),
+                new TwoArraysMedianFinder().perform(),
+                new LongestPalindromicSubstringFinder().perform(),
+                new ZigzagConverter().perform(),
                 new ReverseIntegerCheckIntBounds().perform()
         ).forEach(result -> System.out.println("$$$ " + result.toString()));
     }
