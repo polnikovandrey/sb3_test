@@ -15,11 +15,11 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
-                new MaxDistinctSubstringLengthCalculator().perform(),
-                new TwoArraysMedianFinder().perform(),
-                new LongestPalindromicSubstringFinder().perform(),
+                new ReverseIntegerCheckIntBounds().perform(),
                 new ZigzagConverter().perform(),
-                new ReverseIntegerCheckIntBounds().perform()
+                new LongestPalindromicSubstringFinder().perform(),
+                new TwoArraysMedianFinder().perform(),
+                new MaxDistinctSubstringLengthCalculator().perform()
         ).forEach(result -> System.out.println("$$$ " + result.toString()));
     }
 }
