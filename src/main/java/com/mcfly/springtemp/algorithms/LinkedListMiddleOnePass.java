@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Найти средний элемент в связном списке за один проход.
+ * Подсказка: 2 указателя, один получает значение на каждую 2-е присвоение значение первому.
+ * Если список может быть зациклен - проверяем окончание списка не на null, а на равенство head.
+ * Вариация: найти i-й элемент списка с конца. Подсказка: 2-й указатель устанавливается только на i-е присвоение 1-му и
+ * движется синхронно с 1-м до null (с отставанием на i).
+ */
 public class LinkedListMiddleOnePass extends BaseAlgorithm<LinkedListMiddleOnePass.LinkedList> {
 
     @Override
