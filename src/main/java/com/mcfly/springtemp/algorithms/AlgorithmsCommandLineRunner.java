@@ -15,6 +15,7 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
+                new FibonacciFactory().perform(),
                 new BubbleSortArray().perform(),
                 new FindSingleDuplicateWithinArray().perform(),
                 new LinkedListMiddleOnePass().perform(),
