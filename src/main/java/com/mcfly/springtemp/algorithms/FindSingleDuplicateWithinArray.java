@@ -1,6 +1,5 @@
 package com.mcfly.springtemp.algorithms;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -11,7 +10,7 @@ import java.util.stream.IntStream;
  * В массиве будет один "лишний" элемент, т.е. длина равна длине массива 1..N + 1
  * Нужно вернуть: (сумма всех элементов) - (ожидаемая сумма 1..100)
  */
-public class FindSingleDuplicateWithinArray extends BaseAlgorithm<FindSingleDuplicateWithinArray.IntArray> {
+public class FindSingleDuplicateWithinArray extends BaseAlgorithm<IntArray> {
 
     @Override
     IntArray[] getArguments() {
@@ -40,25 +39,5 @@ public class FindSingleDuplicateWithinArray extends BaseAlgorithm<FindSingleDupl
             }
         }
         return actualSum - awaitedSum;
-    }
-
-    static final class IntArray {
-
-        private final Integer[] integers;
-
-        IntArray(Integer[] integers) {
-            this.integers = integers;
-        }
-
-        Integer[] getIntegers() {
-            return integers;
-        }
-
-        @Override
-        public String toString() {
-            return "IntArray{" +
-                    "integers=" + Arrays.toString(integers) +
-                    '}';
-        }
     }
 }
