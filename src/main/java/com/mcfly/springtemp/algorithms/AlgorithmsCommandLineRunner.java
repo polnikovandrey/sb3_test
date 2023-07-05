@@ -15,6 +15,7 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
+                new FindSingleDuplicateWithinArray().perform(),
                 new LinkedListMiddleOnePass().perform(),
                 new ReverseIntegerCheckIntBounds().perform(),
                 new ZigzagConverter().perform(),
