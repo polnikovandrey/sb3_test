@@ -8,7 +8,7 @@ public class LinkedListMiddleOnePass extends BaseAlgorithm<LinkedListMiddleOnePa
 
     @Override
     LinkedList[] getArguments() {
-        return new LinkedList[] {
+        return new LinkedList[]{
                 new LinkedList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"),
                 new LinkedList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11")
         };
@@ -17,42 +17,38 @@ public class LinkedListMiddleOnePass extends BaseAlgorithm<LinkedListMiddleOnePa
     @Override
     Object calculate(LinkedList linkedList) {
         int length = 0;
-        LinkedList.Node current = linkedList.head;
-        LinkedList.Node middle = linkedList.head;
-        while (current.next != null) {
+        LinkedList.Node current = linkedList.getHead();
+        LinkedList.Node middle = linkedList.getHead();
+        while (current.getNext() != null) {
             length++;
-            current = current.next;
+            current = current.getNext();
             if (length % 2 == 0) {
-                middle = middle.next;
+                middle = middle.getNext();
             }
         }
         if (length % 2 == 1) {
-            middle = middle.next;
+            middle = middle.getNext();
         }
         return middle;
     }
 
-    static class LinkedList {
+    static final class LinkedList {
 
         private final Node head;
         private Node tail;
 
-        public LinkedList() {
-            this(new String[0]);
-        }
-
-        public LinkedList(String... values) {
+        LinkedList(String... values) {
             this.head = new Node("head");
             tail = head;
             Arrays.stream(values)
                     .forEach(value -> add(new LinkedList.Node(value)));
         }
 
-        public Node head() {
+        Node getHead() {
             return head;
         }
 
-        public void add(Node node) {
+        void add(Node node) {
             tail.next = node;
             tail = node;
         }
@@ -68,29 +64,17 @@ public class LinkedListMiddleOnePass extends BaseAlgorithm<LinkedListMiddleOnePa
             return all.toString();
         }
 
-        public static class Node {
+        static final class Node {
 
+            private final String data;
             private Node next;
-            private String data;
 
-            public Node(String data) {
+            Node(String data) {
                 this.data = data;
             }
 
-            public String data() {
-                return data;
-            }
-
-            public void setData(String data) {
-                this.data = data;
-            }
-
-            public Node next() {
+            Node getNext() {
                 return next;
-            }
-
-            public void setNext(Node next) {
-                this.next = next;
             }
 
             @Override
