@@ -10,6 +10,14 @@ public final class ZigzagConverter extends BaseAlgorithm<ZigzagConverter.Input> 
             this.input = input;
             this.numRows = numRows;
         }
+
+        @Override
+        public String toString() {
+            return "Input{" +
+                    "input='" + input + '\'' +
+                    ", numRows=" + numRows +
+                    '}';
+        }
     }
 
     @Override
