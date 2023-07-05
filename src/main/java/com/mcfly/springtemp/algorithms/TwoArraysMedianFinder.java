@@ -4,6 +4,9 @@ import java.util.Arrays;
 
 /**
  * Ищет медиану двух массивов.
+ * 2 шага:
+ * слияние массивов
+ * получение и вычисление среднего арифметического 2-х срединных элементов
  */
 public final class TwoArraysMedianFinder extends BaseAlgorithm<TwoArraysMedianFinder.TwoArrays> {
 

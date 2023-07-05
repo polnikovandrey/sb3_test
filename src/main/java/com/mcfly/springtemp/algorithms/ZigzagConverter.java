@@ -1,5 +1,11 @@
 package com.mcfly.springtemp.algorithms;
 
+/**
+ * PAYPALISHIRING 3
+ * P        A       H       N
+ * A    P   L   S   I   I   G
+ * Y        I       R
+ */
 public final class ZigzagConverter extends BaseAlgorithm<ZigzagConverter.Input> {
 
     public static class Input {

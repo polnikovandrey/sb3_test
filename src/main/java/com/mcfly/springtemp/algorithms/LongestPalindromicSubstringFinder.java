@@ -1,5 +1,11 @@
 package com.mcfly.springtemp.algorithms;
 
+/**
+ * Найти максимальную подстроку-палиндром.
+ * Подсказка:
+ * На каждой итерации проверяем относительно соответствующего символа наличие палиндрома одного
+ * из видов (четного/нечетного): вызываются 2 операции проверки.
+ */
 public class LongestPalindromicSubstringFinder extends BaseAlgorithm<String> {
 
     @Override
