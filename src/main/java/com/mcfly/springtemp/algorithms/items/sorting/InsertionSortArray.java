@@ -5,6 +5,11 @@ import com.mcfly.springtemp.algorithms.IntegerArray;
 
 import java.util.Arrays;
 
+/**
+ * Итерация с 1-й позиции до последней.
+ * Запоминается значение этой позиции и пока оно меньше i - 1 происходит замена (обратная while итерация).
+ * Когда найдена позиция с меньшим значением - происходит присвоение запомненной позиции.
+ */
 public class InsertionSortArray extends BaseAlgorithm<IntegerArray> {
 
     @Override
