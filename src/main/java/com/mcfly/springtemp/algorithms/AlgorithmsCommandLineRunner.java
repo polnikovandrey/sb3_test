@@ -4,10 +4,7 @@ import com.mcfly.springtemp.algorithms.items.math.*;
 import com.mcfly.springtemp.algorithms.items.sorting.BubbleSortArray;
 import com.mcfly.springtemp.algorithms.items.sorting.InsertionSortArray;
 import com.mcfly.springtemp.algorithms.items.sorting.SelectionSortArray;
-import com.mcfly.springtemp.algorithms.items.string.CheckPalindromeString;
-import com.mcfly.springtemp.algorithms.items.string.LongestPalindromicSubstringFinder;
-import com.mcfly.springtemp.algorithms.items.string.MaxDistinctSubstringLengthCalculator;
-import com.mcfly.springtemp.algorithms.items.string.ZigzagConverter;
+import com.mcfly.springtemp.algorithms.items.string.*;
 import com.mcfly.springtemp.algorithms.items.structure.LinkedListMiddleOnePass;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -24,6 +21,7 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
+                new ValidateParenthesesPairs().perform(),
                 new SelectionSortArray().perform(),
                 new InsertionSortArray().perform(),
                 new SumCyphers().perform(),
