@@ -15,6 +15,7 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
+                new SumCyphers().perform(),
                 new CheckPalindromeString().perform(),
                 new FibonacciFactory().perform(),
                 new BubbleSortArray().perform(),
