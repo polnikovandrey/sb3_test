@@ -1,7 +1,7 @@
 package com.mcfly.springtemp.algorithms.items.sorting;
 
 import com.mcfly.springtemp.algorithms.BaseAlgorithm;
-import com.mcfly.springtemp.algorithms.IntArray;
+import com.mcfly.springtemp.algorithms.IntegerArray;
 
 import java.util.Arrays;
 
@@ -10,19 +10,19 @@ import java.util.Arrays;
  * В цикле от начала до конца проходим массив и меняем рядом стоящие элементы если левый > правого.
  * Если была хоть одна замена - цикл повторяется.
  */
-public class BubbleSortArray extends BaseAlgorithm<IntArray> {
+public class BubbleSortArray extends BaseAlgorithm<IntegerArray> {
 
     @Override
-    public IntArray[] getArguments() {
-        return new IntArray[]{
-                new IntArray(new Integer[]{32, 39, 21, 45, 23, 3}),
-                new IntArray(new Integer[]{5, 3, 2, 1})
+    public IntegerArray[] getArguments() {
+        return new IntegerArray[]{
+                new IntegerArray(new Integer[]{32, 39, 21, 45, 23, 3}),
+                new IntegerArray(new Integer[]{5, 3, 2, 1})
         };
     }
 
     @Override
-    public Object calculate(IntArray intArray) {
-        final int[] array = Arrays.stream(intArray.getIntegers()).mapToInt(Integer::intValue).toArray();
+    public Object calculate(IntegerArray integerArray) {
+        final int[] array = integerArray.toIntArray();
         boolean sorted = false;
         while (!sorted) {
             sorted = true;

@@ -2,16 +2,16 @@ package com.mcfly.springtemp.algorithms;
 
 import java.util.Arrays;
 
-public final class IntArray {
+public final class IntegerArray {
 
     private final Integer[] integers;
 
-    public IntArray(Integer[] integers) {
+    public IntegerArray(Integer[] integers) {
         this.integers = integers;
     }
 
-    public Integer[] getIntegers() {
-        return integers;
+    public int[] toIntArray() {
+        return Arrays.stream(integers).mapToInt(Integer::intValue).toArray();
     }
 
     @Override
