@@ -3,6 +3,7 @@ package com.mcfly.springtemp.algorithms;
 import com.mcfly.springtemp.algorithms.items.math.*;
 import com.mcfly.springtemp.algorithms.items.sorting.BubbleSortArray;
 import com.mcfly.springtemp.algorithms.items.sorting.InsertionSortArray;
+import com.mcfly.springtemp.algorithms.items.sorting.SelectionSortArray;
 import com.mcfly.springtemp.algorithms.items.string.CheckPalindromeString;
 import com.mcfly.springtemp.algorithms.items.string.LongestPalindromicSubstringFinder;
 import com.mcfly.springtemp.algorithms.items.string.MaxDistinctSubstringLengthCalculator;
@@ -23,6 +24,7 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
+                new SelectionSortArray().perform(),
                 new InsertionSortArray().perform(),
                 new SumCyphers().perform(),
                 new CheckPalindromeString().perform(),
