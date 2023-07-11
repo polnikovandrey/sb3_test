@@ -1,9 +1,11 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.string;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 public class CheckPalindromeString extends BaseAlgorithm<String> {
 
     @Override
-    String[] getArguments() {
+    public String[] getArguments() {
         return new String[] {
                 "zxcxz",
                 "qwertytrewq",
@@ -16,7 +18,7 @@ public class CheckPalindromeString extends BaseAlgorithm<String> {
     }
 
     @Override
-    Object calculate(String s) {
+    public Object calculate(String s) {
         return checkPalindromeRecursive(s);
     }
 

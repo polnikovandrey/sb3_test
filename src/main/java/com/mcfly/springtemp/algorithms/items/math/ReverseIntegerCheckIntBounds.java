@@ -1,4 +1,6 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.math;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 /**
  * Обращение int.
@@ -12,7 +14,7 @@ package com.mcfly.springtemp.algorithms;
 public class ReverseIntegerCheckIntBounds extends BaseAlgorithm<Integer> {
 
     @Override
-    Integer[] getArguments() {
+    public Integer[] getArguments() {
         return new Integer[] {
                 123,
                 -123,
@@ -21,7 +23,7 @@ public class ReverseIntegerCheckIntBounds extends BaseAlgorithm<Integer> {
     }
 
     @Override
-    Object calculate(Integer x) {
+    public Object calculate(Integer x) {
         long result = 0L;
         while (x != 0) {
             int rest = x % 10;

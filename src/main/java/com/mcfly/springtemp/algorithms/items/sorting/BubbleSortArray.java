@@ -1,4 +1,7 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.sorting;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
+import com.mcfly.springtemp.algorithms.IntArray;
 
 import java.util.Arrays;
 
@@ -10,7 +13,7 @@ import java.util.Arrays;
 public class BubbleSortArray extends BaseAlgorithm<IntArray> {
 
     @Override
-    IntArray[] getArguments() {
+    public IntArray[] getArguments() {
         return new IntArray[]{
                 new IntArray(new Integer[]{32, 39, 21, 45, 23, 3}),
                 new IntArray(new Integer[]{5, 3, 2, 1})
@@ -18,7 +21,7 @@ public class BubbleSortArray extends BaseAlgorithm<IntArray> {
     }
 
     @Override
-    Object calculate(IntArray intArray) {
+    public Object calculate(IntArray intArray) {
         final int[] array = Arrays.stream(intArray.getIntegers()).mapToInt(Integer::intValue).toArray();
         boolean sorted = false;
         while (!sorted) {

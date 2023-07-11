@@ -1,5 +1,12 @@
 package com.mcfly.springtemp.algorithms;
 
+import com.mcfly.springtemp.algorithms.items.math.*;
+import com.mcfly.springtemp.algorithms.items.sorting.BubbleSortArray;
+import com.mcfly.springtemp.algorithms.items.string.CheckPalindromeString;
+import com.mcfly.springtemp.algorithms.items.string.LongestPalindromicSubstringFinder;
+import com.mcfly.springtemp.algorithms.items.string.MaxDistinctSubstringLengthCalculator;
+import com.mcfly.springtemp.algorithms.items.string.ZigzagConverter;
+import com.mcfly.springtemp.algorithms.items.structure.LinkedListMiddleOnePass;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 

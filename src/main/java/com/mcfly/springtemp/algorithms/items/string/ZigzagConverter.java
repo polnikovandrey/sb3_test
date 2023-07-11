@@ -1,4 +1,6 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.string;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 /**
  * PAYPALISHIRING 3
@@ -27,7 +29,7 @@ public final class ZigzagConverter extends BaseAlgorithm<ZigzagConverter.Input> 
     }
 
     @Override
-    Input[] getArguments() {
+    public Input[] getArguments() {
         return new Input[] {
                 new Input("ABCDE", 4),
                 new Input("PAYPALISHIRING", 3),
@@ -37,7 +39,7 @@ public final class ZigzagConverter extends BaseAlgorithm<ZigzagConverter.Input> 
     }
 
     @Override
-    Object calculate(Input input) {
+    public Object calculate(Input input) {
         return convertWithMatrix(input.input, input.numRows);
     }
 

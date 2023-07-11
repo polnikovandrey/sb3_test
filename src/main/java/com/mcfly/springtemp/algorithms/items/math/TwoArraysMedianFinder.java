@@ -1,4 +1,6 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.math;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 import java.util.Arrays;
 
@@ -26,7 +28,7 @@ public final class TwoArraysMedianFinder extends BaseAlgorithm<TwoArraysMedianFi
     }
 
     @Override
-    TwoArrays[] getArguments() {
+    public TwoArrays[] getArguments() {
         return new TwoArrays[] {
                 new TwoArrays(new int[] {1, 3}, new int[]{2}),
                 new TwoArrays(new int[] {1, 2}, new int[]{3, 4}),
@@ -35,7 +37,7 @@ public final class TwoArraysMedianFinder extends BaseAlgorithm<TwoArraysMedianFi
     }
 
     @Override
-    Double calculate(TwoArrays twoArrays) {
+    public Double calculate(TwoArrays twoArrays) {
         final int[] nums1 = twoArrays.nums1;
         final int[] nums2 = twoArrays.nums2;
         final int[] merged = new int[nums1.length + nums2.length];

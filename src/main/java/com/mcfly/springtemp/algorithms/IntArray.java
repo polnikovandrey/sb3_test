@@ -2,15 +2,15 @@ package com.mcfly.springtemp.algorithms;
 
 import java.util.Arrays;
 
-final class IntArray {
+public final class IntArray {
 
     private final Integer[] integers;
 
-    IntArray(Integer[] integers) {
+    public IntArray(Integer[] integers) {
         this.integers = integers;
     }
 
-    Integer[] getIntegers() {
+    public Integer[] getIntegers() {
         return integers;
     }
 

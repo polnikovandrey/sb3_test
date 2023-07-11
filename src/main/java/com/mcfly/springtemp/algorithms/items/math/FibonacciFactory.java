@@ -1,16 +1,18 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.math;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 import java.util.Arrays;
 
 public class FibonacciFactory extends BaseAlgorithm<Integer> {
 
     @Override
-    Integer[] getArguments() {
+    public Integer[] getArguments() {
         return new Integer[] { 10, 20 };
     }
 
     @Override
-    Object calculate(Integer count) {
+    public Object calculate(Integer count) {
         int[] fibonacci = new int[count];
         fibonacci[0] = 1;
         fibonacci[1] = 1;

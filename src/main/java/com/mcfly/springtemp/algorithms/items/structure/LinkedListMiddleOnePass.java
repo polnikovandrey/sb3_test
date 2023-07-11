@@ -1,4 +1,6 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.structure;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +16,7 @@ import java.util.List;
 public class LinkedListMiddleOnePass extends BaseAlgorithm<LinkedListMiddleOnePass.LinkedList> {
 
     @Override
-    LinkedList[] getArguments() {
+    public LinkedList[] getArguments() {
         return new LinkedList[]{
                 new LinkedList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"),
                 new LinkedList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11")
@@ -22,7 +24,7 @@ public class LinkedListMiddleOnePass extends BaseAlgorithm<LinkedListMiddleOnePa
     }
 
     @Override
-    Object calculate(LinkedList linkedList) {
+    public Object calculate(LinkedList linkedList) {
         int length = 0;
         LinkedList.Node current = linkedList.getHead();
         LinkedList.Node middle = linkedList.getHead();

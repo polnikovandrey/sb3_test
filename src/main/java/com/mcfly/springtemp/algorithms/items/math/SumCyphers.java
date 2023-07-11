@@ -1,4 +1,6 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.math;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 import java.util.Arrays;
 
@@ -8,7 +10,7 @@ import java.util.Arrays;
 public class SumCyphers extends BaseAlgorithm<Integer> {
 
     @Override
-    Integer[] getArguments() {
+    public Integer[] getArguments() {
         return new Integer[] {
                 12345,
                 987654321
@@ -16,7 +18,7 @@ public class SumCyphers extends BaseAlgorithm<Integer> {
     }
 
     @Override
-    Object calculate(Integer integer) {
+    public Object calculate(Integer integer) {
         final int anInt = integer;
 
         int temp = anInt;

@@ -1,4 +1,7 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.math;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
+import com.mcfly.springtemp.algorithms.IntArray;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,7 +16,7 @@ import java.util.stream.IntStream;
 public class FindSingleDuplicateWithinArray extends BaseAlgorithm<IntArray> {
 
     @Override
-    IntArray[] getArguments() {
+    public IntArray[] getArguments() {
         final List<Integer> zeroToFifteenList = IntStream.rangeClosed(1, 50)
                 .boxed()
                 .collect(Collectors.toList());
@@ -29,7 +32,7 @@ public class FindSingleDuplicateWithinArray extends BaseAlgorithm<IntArray> {
     }
 
     @Override
-    Object calculate(IntArray intArray) {
+    public Object calculate(IntArray intArray) {
         int awaitedSum = 0;
         int actualSum = 0;
         for (int i = 0; i < intArray.getIntegers().length; i++) {

@@ -4,11 +4,11 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-abstract class BaseAlgorithm <Input> {
+public abstract class BaseAlgorithm <Input> {
 
-    abstract Input[] getArguments();
+    public abstract Input[] getArguments();
 
-    abstract Object calculate(Input input);
+    public abstract Object calculate(Input input);
 
     public Collection<Object> perform() {
         return perform(getArguments());

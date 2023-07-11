@@ -1,4 +1,6 @@
-package com.mcfly.springtemp.algorithms;
+package com.mcfly.springtemp.algorithms.items.string;
+
+import com.mcfly.springtemp.algorithms.BaseAlgorithm;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -18,7 +20,7 @@ import java.util.Set;
 public final class MaxDistinctSubstringLengthCalculator extends BaseAlgorithm<String> {
 
     @Override
-    String[] getArguments() {
+    public String[] getArguments() {
         return new String[] {
                 "abcdcba",
                 "abcaqwertyq"
@@ -26,7 +28,7 @@ public final class MaxDistinctSubstringLengthCalculator extends BaseAlgorithm<St
     }
 
     @Override
-    Object calculate(String input) {
+    public Object calculate(String input) {
         int max = 0;
         int left = 0;
         Set<Character> set = new HashSet<>(input.length());
