@@ -6,7 +6,7 @@ import com.mcfly.springtemp.algorithms.BaseAlgorithm;
  * Обращение int.
  * Подсказки:
  * Результат должен накапливаться в long чтобы не вышел за пределы int. В конце нужно привести к int, но предварительно
- * проверить не будет ли переполнения (Integer.MIN_VALUE MAX_VALUE).
+ * проверить не будет ли переполнения (Integer.MIN_VALUE / Integer.MAX_VALUE).
  * int % 10 = значение последнего разряда
  * это значение нужно накапливать в long результате. На каждом шаге умножать результат на 10, после цикла делим на 10.
  * int / 10 вернет 0 если остался один разряд (проверка окончания while цикла)
@@ -26,8 +26,8 @@ public class ReverseIntegerCheckIntBounds extends BaseAlgorithm<Integer> {
     public Object calculate(Integer x) {
         long result = 0L;
         while (x != 0) {
-            int rest = x % 10;
-            result += rest;
+            int reminder = x % 10;
+            result += reminder;
             result *= 10;
             x = x / 10;
         }
