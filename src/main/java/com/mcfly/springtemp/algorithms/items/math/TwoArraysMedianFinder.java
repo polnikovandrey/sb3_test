@@ -12,7 +12,7 @@ import java.util.Arrays;
  */
 public final class TwoArraysMedianFinder extends BaseAlgorithm<TwoArraysMedianFinder.TwoArrays> {
 
-    static final class TwoArrays {
+    public static final class TwoArrays {
         int[] nums1;
         int[] nums2;
 
