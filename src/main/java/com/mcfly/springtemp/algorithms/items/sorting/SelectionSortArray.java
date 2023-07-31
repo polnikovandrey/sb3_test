@@ -8,6 +8,8 @@ import java.util.Arrays;
 /**
  * В цикле i..n (i начитает с 0) на каждой итерации происходит поиск (выбор/select) индекса с минимальным значением.
  * Далее происходит взаимная замена значений в позиции i и в позиции минимального значения.
+ * Time complexity O(N2)
+ * Space complexity O(1)
  */
 public class SelectionSortArray extends BaseAlgorithm<IntegerArray> {
 

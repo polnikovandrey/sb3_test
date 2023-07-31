@@ -9,6 +9,8 @@ import java.util.Arrays;
  * Пузырьковая сортировка (большие значения "всплывают" в конец массива).
  * В цикле от начала до конца проходим массив и меняем рядом стоящие элементы если левый > правого.
  * Если была хоть одна замена - цикл повторяется.
+ * Time complexity O(N2)
+ * Space complexity O(1)
  */
 public class BubbleSortArray extends BaseAlgorithm<IntegerArray> {
 
