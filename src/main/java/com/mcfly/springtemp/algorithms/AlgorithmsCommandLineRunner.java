@@ -21,6 +21,7 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
+                new FindIndexOfFirstSubstringOccurrence().perform(),
                 new ValidateParenthesesPairs().perform(),
                 new SelectionSortArray().perform(),
                 new InsertionSortArray().perform(),
