@@ -1,13 +1,13 @@
-package com.mcfly.springtemp.serialization.serializable;
+package com.mcfly.springtemp.serialization.serializable.data;
 
-public final class Address {
+public final class NotSerializableAddress {
 
     private final String state;
     private final String city;
     private final int number;
     private final int zipCode;
 
-    public Address(String state, String city, int number, int zipCode) {
+    public NotSerializableAddress(String state, String city, int number, int zipCode) {
         this.state = state;
         this.city = city;
         this.number = number;

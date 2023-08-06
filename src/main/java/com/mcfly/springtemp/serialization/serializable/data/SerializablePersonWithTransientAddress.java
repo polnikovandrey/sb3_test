@@ -1,25 +1,25 @@
-package com.mcfly.springtemp.serialization.serializable;
+package com.mcfly.springtemp.serialization.serializable.data;
 
 import java.io.Serial;
 import java.io.Serializable;
 
 @SuppressWarnings("LombokGetterMayBeUsed")
-public final class Person implements Serializable {
+public final class SerializablePersonWithTransientAddress implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
 
     private String name;
     private int age;
-    private transient Address transientNotSerializable;
+    private transient NotSerializableAddress address;
 
-    public Person() {
+    public SerializablePersonWithTransientAddress() {
     }
 
-    public Person(String name, int age, Address transientNotSerializable) {
+    public SerializablePersonWithTransientAddress(String name, int age, NotSerializableAddress address) {
         this.name = name;
         this.age = age;
-        this.transientNotSerializable = transientNotSerializable;
+        this.address = address;
     }
 
     public String getName() {
@@ -38,12 +38,12 @@ public final class Person implements Serializable {
         this.age = age;
     }
 
-    public Object getTransientNotSerializable() {
-        return transientNotSerializable;
+    public Object getAddress() {
+        return address;
     }
 
-    public void setTransientNotSerializable(Address transientNotSerializable) {
-        this.transientNotSerializable = transientNotSerializable;
+    public void setAddress(NotSerializableAddress address) {
+        this.address = address;
     }
 
     @Override
@@ -51,7 +51,7 @@ public final class Person implements Serializable {
         return "Person{" +
                "name='" + name + '\'' +
                ", age=" + age +
-               ", nonSerializable=" + transientNotSerializable +
+               ", address=" + address +
                '}';
     }
 }
