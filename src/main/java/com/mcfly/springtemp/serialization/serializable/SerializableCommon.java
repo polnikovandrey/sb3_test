@@ -12,16 +12,17 @@ public class SerializableCommon {
     private static final String FILE = "che.ser";
     private static final Logger logger = LoggerFactory.getLogger(SerializableCommon.class);
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         serializePerson();
         deserializePerson();
     }
 
     private static void serializePerson() {
-        final NotSerializableAddress address = new NotSerializableAddress("state", "city", 42, 43);
+        final NotSerializableAddress address = new NotSerializableAddress("state", "city", 43, 44);
         final SerializablePersonWithTransientAddress person = new SerializablePersonWithTransientAddress("Che", 42, address);
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(FILE))) {
             objectOutputStream.writeObject(person);
+            objectOutputStream.flush();
             logger.info("Person object was serialized: {}", person);
         } catch (IOException e) {
             logger.error("Exception", e);

@@ -12,13 +12,13 @@ public class SerializableCustom {
     private static final String FILE = "che.ser";
     private static final Logger logger = LoggerFactory.getLogger(SerializableCommon.class);
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
         serializePerson();
         deserializePerson();
     }
 
     private static void serializePerson() {
-        final NotSerializableAddress address = new NotSerializableAddress("state", "city", 42, 43);
+        final NotSerializableAddress address = new NotSerializableAddress("state", "city", 43, 44);
         final SerializablePersonWithCustomAddressSerialization person = new SerializablePersonWithCustomAddressSerialization("Che", 42, address);
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(FILE))) {
             objectOutputStream.writeObject(person);
