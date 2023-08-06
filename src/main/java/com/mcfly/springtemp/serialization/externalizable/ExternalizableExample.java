@@ -20,9 +20,11 @@ public class ExternalizableExample {
     private static void externalizePerson() {
         final NotSerializableAddress address = new NotSerializableAddress("state", "city", 43, 44);
         final NotSerializablePerson person = new NotSerializablePerson("che", 42, address);
-        try (ObjectOutput objectOutput = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(FILE)))) {
-            person.writeExternal(objectOutput);
-            objectOutput.flush();
+        try (FileOutputStream fos = new FileOutputStream(FILE);
+             BufferedOutputStream bos = new BufferedOutputStream(fos);
+             ObjectOutput oo = new ObjectOutputStream(bos)) {
+            person.writeExternal(oo);
+            oo.flush();
             logger.info("Externalized person: {}", person);
         } catch (IOException e) {
             logger.error("Exception", e);
@@ -32,9 +34,11 @@ public class ExternalizableExample {
     private static void deExternalizePerson() {
         final File file = new File(FILE);
         file.deleteOnExit();
-        try (ObjectInput objectInput = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
+        try (FileInputStream fis = new FileInputStream(file);
+             BufferedInputStream bis = new BufferedInputStream(fis);
+             ObjectInput oi = new ObjectInputStream(bis)) {
             final NotSerializablePerson person = new NotSerializablePerson();
-            person.readExternal(objectInput);
+            person.readExternal(oi);
             logger.info("DeExternalized person: {}", person);
         } catch (IOException | ClassNotFoundException e) {
             logger.error("Exception", e);

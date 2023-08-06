@@ -20,9 +20,11 @@ public class SerializableCommon {
     private static void serializePerson() {
         final NotSerializableAddress address = new NotSerializableAddress("state", "city", 43, 44);
         final SerializablePersonWithTransientAddress person = new SerializablePersonWithTransientAddress("Che", 42, address);
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(FILE)))) {
-            objectOutputStream.writeObject(person);
-            objectOutputStream.flush();
+        try (FileOutputStream fos = new FileOutputStream(FILE);
+             BufferedOutputStream bos = new BufferedOutputStream(fos);
+             ObjectOutputStream oos = new ObjectOutputStream(bos)) {
+            oos.writeObject(person);
+            oos.flush();
             logger.info("Person object was serialized: {}", person);
         } catch (IOException e) {
             logger.error("Exception", e);
@@ -31,8 +33,10 @@ public class SerializableCommon {
 
     private static void deserializePerson() {
         final File file = new File(FILE);
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
-            final SerializablePersonWithTransientAddress person = (SerializablePersonWithTransientAddress) objectInputStream.readObject();
+        try (FileInputStream fis = new FileInputStream(file);
+             BufferedInputStream bis = new BufferedInputStream(fis);
+             ObjectInputStream ois = new ObjectInputStream(bis)) {
+            final SerializablePersonWithTransientAddress person = (SerializablePersonWithTransientAddress) ois.readObject();
             logger.info("Person object was deserialized: {}", person);
         } catch (ClassNotFoundException | IOException e) {
             logger.error("Exception", e);
