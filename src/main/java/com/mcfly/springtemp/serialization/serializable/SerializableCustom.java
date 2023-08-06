@@ -20,7 +20,7 @@ public class SerializableCustom {
     private static void serializePerson() {
         final NotSerializableAddress address = new NotSerializableAddress("state", "city", 43, 44);
         final SerializablePersonWithCustomAddressSerialization person = new SerializablePersonWithCustomAddressSerialization("Che", 42, address);
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(FILE))) {
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(FILE)))) {
             objectOutputStream.writeObject(person);
             logger.info("Person object was serialized: {}", person);
         } catch (IOException e) {
@@ -30,7 +30,7 @@ public class SerializableCustom {
 
     private static void deserializePerson() {
         final File file = new File(FILE);
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(file))) {
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
             final SerializablePersonWithCustomAddressSerialization person = (SerializablePersonWithCustomAddressSerialization) objectInputStream.readObject();
             logger.info("Person object was deserialized: {}", person);
         } catch (ClassNotFoundException | IOException e) {

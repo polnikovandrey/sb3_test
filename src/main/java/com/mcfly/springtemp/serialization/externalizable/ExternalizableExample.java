@@ -20,7 +20,7 @@ public class ExternalizableExample {
     private static void externalizePerson() {
         final NotSerializableAddress address = new NotSerializableAddress("state", "city", 43, 44);
         final NotSerializablePerson person = new NotSerializablePerson("che", 42, address);
-        try (ObjectOutput objectOutput = new ObjectOutputStream(new FileOutputStream(FILE))) {
+        try (ObjectOutput objectOutput = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(FILE)))) {
             person.writeExternal(objectOutput);
             objectOutput.flush();
             logger.info("Externalized person: {}", person);
@@ -32,7 +32,7 @@ public class ExternalizableExample {
     private static void deExternalizePerson() {
         final File file = new File(FILE);
         file.deleteOnExit();
-        try (ObjectInput objectInput = new ObjectInputStream(new FileInputStream(file))) {
+        try (ObjectInput objectInput = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))) {
             final NotSerializablePerson person = new NotSerializablePerson();
             person.readExternal(objectInput);
             logger.info("DeExternalized person: {}", person);
