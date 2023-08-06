@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.serialization.serializable_common;
+package com.mcfly.springtemp.serialization.serializable;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +15,8 @@ public class SerializableCommon {
     }
 
     private static void serializePerson() {
-        final Person person = new Person("Che", 42, new Object());
+        final Address address = new Address("state", "city", 42, 43);
+        final Person person = new Person("Che", 42, address);
         try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("che.ser"))) {
             objectOutputStream.writeObject(person);
             logger.info("Person object was serialized: {}", person);

@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.serialization.serializable_common;
+package com.mcfly.springtemp.serialization.serializable;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -11,15 +11,15 @@ public final class Person implements Serializable {
 
     private String name;
     private int age;
-    private transient Object transientNonSerializable;
+    private transient Address transientNotSerializable;
 
     public Person() {
     }
 
-    public Person(String name, int age, Object transientNonSerializable) {
+    public Person(String name, int age, Address transientNotSerializable) {
         this.name = name;
         this.age = age;
-        this.transientNonSerializable = transientNonSerializable;
+        this.transientNotSerializable = transientNotSerializable;
     }
 
     public String getName() {
@@ -38,12 +38,12 @@ public final class Person implements Serializable {
         this.age = age;
     }
 
-    public Object getTransientNonSerializable() {
-        return transientNonSerializable;
+    public Object getTransientNotSerializable() {
+        return transientNotSerializable;
     }
 
-    public void setTransientNonSerializable(Object transientNonSerializable) {
-        this.transientNonSerializable = transientNonSerializable;
+    public void setTransientNotSerializable(Address transientNotSerializable) {
+        this.transientNotSerializable = transientNotSerializable;
     }
 
     @Override
@@ -51,7 +51,7 @@ public final class Person implements Serializable {
         return "Person{" +
                "name='" + name + '\'' +
                ", age=" + age +
-               ", nonSerializable=" + transientNonSerializable +
+               ", nonSerializable=" + transientNotSerializable +
                '}';
     }
 }
