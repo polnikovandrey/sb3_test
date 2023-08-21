@@ -1,6 +1,6 @@
-package com.mcfly.springtemp.net.cilent_server;
+package com.mcfly.springtemp.net.tcp_socket;
 
-public class SocketClientServer {
+public class TcpClientServer {
 
     private static final int SERVER_PORT = 9999;
 

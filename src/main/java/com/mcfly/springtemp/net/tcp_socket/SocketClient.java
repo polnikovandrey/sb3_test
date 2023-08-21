@@ -1,4 +1,4 @@
-package com.mcfly.springtemp.net.cilent_server;
+package com.mcfly.springtemp.net.tcp_socket;
 
 import java.io.*;
 import java.net.Socket;
