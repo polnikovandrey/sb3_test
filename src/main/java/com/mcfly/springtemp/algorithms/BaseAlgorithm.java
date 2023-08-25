@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-public abstract class BaseAlgorithm <Input> {
+public abstract class BaseAlgorithm<Input> {
 
     public abstract Input[] getArguments();
 
