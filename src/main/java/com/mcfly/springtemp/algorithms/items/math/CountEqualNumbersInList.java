@@ -8,8 +8,7 @@ import java.util.stream.Collectors;
 public class CountEqualNumbersInList extends BaseAlgorithm<Integer[]> {
 
     public static void main(String... args) {
-        new CountEqualNumbersInList().perform()
-                                     .forEach(result -> System.out.println("$$$ " + result.toString()));
+        new CountEqualNumbersInList().performAndPrint();
     }
 
     @Override

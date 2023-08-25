@@ -21,23 +21,23 @@ public class AlgorithmsCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         Arrays.asList(
-                new CountEqualNumbersInList().perform(),
-                new AddBinaryStrings().perform(),
-                new FindIndexOfFirstSubstringOccurrence().perform(),
-                new ValidateParenthesesPairs().perform(),
-                new SelectionSortArray().perform(),
-                new InsertionSortArray().perform(),
-                new SumCyphers().perform(),
-                new CheckPalindromeString().perform(),
-                new FibonacciFactory().perform(),
-                new BubbleSortArray().perform(),
-                new FindSingleDuplicateWithinArray().perform(),
-                new LinkedListMiddleOnePass().perform(),
-                new ReverseIntegerCheckIntBounds().perform(),
-                new ZigzagConverter().perform(),
-                new LongestPalindromicSubstringFinder().perform(),
-                new TwoArraysMedianFinder().perform(),
-                new MaxDistinctSubstringLengthCalculator().perform()
-        ).forEach(result -> System.out.println("$$$ " + result.toString()));
+                new CountEqualNumbersInList(),
+                new AddBinaryStrings(),
+                new FindIndexOfFirstSubstringOccurrence(),
+                new ValidateParenthesesPairs(),
+                new SelectionSortArray(),
+                new InsertionSortArray(),
+                new SumCyphers(),
+                new CheckPalindromeString(),
+                new FibonacciFactory(),
+                new BubbleSortArray(),
+                new FindSingleDuplicateWithinArray(),
+                new LinkedListMiddleOnePass(),
+                new ReverseIntegerCheckIntBounds(),
+                new ZigzagConverter(),
+                new LongestPalindromicSubstringFinder(),
+                new TwoArraysMedianFinder(),
+                new MaxDistinctSubstringLengthCalculator()
+        ).forEach(BaseAlgorithm::performAndPrint);
     }
 }

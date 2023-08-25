@@ -24,4 +24,8 @@ public abstract class BaseAlgorithm<Input> {
                         + "\n-----")
                 .collect(Collectors.toList());
     }
+
+    public void performAndPrint() {
+        perform().forEach(result -> System.out.println("$$$ " + result.toString()));
+    }
 }
