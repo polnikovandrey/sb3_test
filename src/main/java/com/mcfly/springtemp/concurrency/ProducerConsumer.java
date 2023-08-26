@@ -18,6 +18,11 @@ final class ProducerConsumer<T> {
         this.buffer = Collections.synchronizedList(new LinkedList<>());
     }
 
+    public static void main(String... args) {
+        startWithThreads();
+//        startWithExecutors();
+    }
+
     synchronized void produce(T value) throws InterruptedException {
         while (buffer.size() == MAX_BUFFER_SIZE) {
             System.out.println("$$$ " + getClass().getSimpleName() + " producer wait.");
