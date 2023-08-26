@@ -20,7 +20,7 @@ final class ProducerConsumer<T> {
 
     public static void main(String... args) {
         startWithThreads();
-//        startWithExecutors();
+        startWithExecutors();
     }
 
     synchronized void produce(T value) throws InterruptedException {
@@ -47,9 +47,6 @@ final class ProducerConsumer<T> {
     boolean isEmpty() {
         return buffer.isEmpty();
     }
-
-
-
 
     static void startWithThreads() {
         final ProducerConsumer<Integer> producerConsumer = new ProducerConsumer<>();

@@ -22,7 +22,7 @@ class SemaphoreExample {
     private void execute() {
         final Semaphore semaphore = new Semaphore(PERMITS, FAIR);
         final Set<Worker> workers
-                = IntStream.range(0, WORKERS_COUNT)
+                = IntStream.rangeClosed(1, WORKERS_COUNT)
                            .mapToObj(i -> new Worker(semaphore, i))
                            .collect(Collectors.toSet());
         workers.forEach(Worker::work);
